@@ -1,6 +1,6 @@
 public class Patterns{
     public static void main(String[] args) {
-        tenth(3);
+        seventeenth(5);
     }
 
     private static void first(int n){
@@ -13,8 +13,8 @@ public class Patterns{
     }
 
     private static void second(int n){
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j <= i; j++) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j < i; j++) {
                 System.out.print("*");
             }
             System.out.println();     
@@ -114,6 +114,96 @@ public class Patterns{
                 System.out.print("* ");
             }
             System.out.println();     
+        }
+    }
+
+    private static void eleventh(int n){
+        boolean flag = true;
+        for (int i = 1; i <= n; i++) {
+            if(i%2==0){
+                flag = true;
+                for (int j = 1; j <= i; j++) {
+                    if(flag){
+                        System.out.print("0");
+                    }
+                    else{
+                        System.out.print("1");
+                    }
+                    flag = !flag;
+                }
+            }
+            if(i%2!=0){
+                flag = false;
+                for (int j = 1; j <= i; j++) {
+                    if(flag){
+                        System.out.print("0");
+                    }
+                    else{
+                        System.out.print("1");
+                    }
+                    flag = !flag;
+                }
+            }
+            System.out.println();
+        }
+    }
+
+
+    private static void twelth(int n){
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(j+" ");
+            }
+            System.out.println();     
+        }
+        for (int i = n; i > 0; i--) {
+            for (int j = 1; j <= (2*i-1); j++) {
+                System.out.print(" ");
+            } 
+            System.out.println();
+        }
+    }
+
+    private static void thirteen(int n){
+        int counter =1;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 0; j < i; j++) {
+                System.out.print(counter++ +" ");
+            }
+            System.out.println();
+        }
+    }
+
+    private static void fourteeth(int n){
+        int counter = 65;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print((char)counter++ + " ");
+            }
+            counter = 65;
+            System.out.println();
+        }
+    }
+
+    private static void fifteenth(int n){
+        int counter = 65;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print((char)counter + " ");
+            }
+            counter++;
+            System.out.println();
+        }
+    }
+
+    private static void sixteenth(int n){
+        int counter = 65;
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j <= n-i; j++) {
+                System.out.print((char)counter++ + " ");
+            }
+            counter=65;
+            System.out.println();
         }
     }
 }
