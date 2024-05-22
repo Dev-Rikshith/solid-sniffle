@@ -1,6 +1,6 @@
 public class Patterns{
     public static void main(String[] args) {
-        seventeenth(5);
+        
     }
 
     private static void first(int n){
