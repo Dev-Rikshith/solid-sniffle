@@ -1,6 +1,6 @@
 public class Patterns{
     public static void main(String[] args) {
-        
+        nineteenth(4);
     }
 
     private static void first(int n){
@@ -149,20 +149,20 @@ public class Patterns{
     }
 
 
-    private static void twelth(int n){
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= i; j++) {
-                System.out.print(j+" ");
-            }
-            System.out.println();     
-        }
-        for (int i = n; i > 0; i--) {
-            for (int j = 1; j <= (2*i-1); j++) {
-                System.out.print(" ");
-            } 
-            System.out.println();
-        }
-    }
+    // private static void twelth(int n){
+    //     for (int i = 1; i <= n; i++) {
+    //         for (int j = 1; j <= i; j++) {
+    //             System.out.print(j+" ");
+    //         }
+    //         System.out.println();     
+    //     }
+    //     for (int i = n; i > 0; i--) {
+    //         for (int j = 1; j <= (2*i-1); j++) {
+    //             System.out.print(" ");
+    //         } 
+    //         System.out.println();
+    //     }
+    // }
 
     private static void thirteen(int n){
         int counter =1;
@@ -205,5 +205,64 @@ public class Patterns{
             counter=65;
             System.out.println();
         }
+    }
+
+    private static void seventeenth(int n){
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= (n-i); j++) {
+                System.out.print(" ");
+            }
+            char cha = 'A';
+            int breakpoint = (2*i-1)/2;
+            for (int j = 1; j <= (2*i-1); j++) {
+               if(j<=breakpoint){
+                System.out.print(cha++);
+               }else{
+                System.out.print(cha--);
+               }
+            } 
+            cha = 'A';
+            System.out.println();
+        }
+    }
+
+    private static void eighteenth(int n){
+        int cha = 65+n-1;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print((char)cha--);
+            }
+            cha = 65+n-1;
+            System.out.println();     
+        }
+    }
+
+    private static void nineteenth(int n){
+        for (int i = 0; i < n; i++) {
+           for (int j = 0; j < n-i; j++) {
+                System.out.print("*");
+           }
+           for (int j = 0; j < i*2; j++) {
+            System.out.print(" ");
+           }
+           for (int j1 = 0; j1 < n-i; j1++) {
+                System.out.print("*");
+           } 
+           System.out.println();
+        }
+        int ins = n+1;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 0; j < i; j++) {
+                 System.out.print("*");
+            }
+            for (int j = 0; j < ins; j++) {
+             System.out.print(" ");
+            }
+            for (int j1 = 0; j1 < i; j1++) {
+                 System.out.print("*");
+            }
+            ins -= 2; 
+            System.out.println();
+         }
     }
 }
