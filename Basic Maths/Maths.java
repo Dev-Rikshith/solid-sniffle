@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Maths {
     public static void main(String[] args) {
-        printDivisorsOptimal(15);
+        printPrimeOptimal(15);
     }
 
     private static void countDigits(int n){
@@ -113,6 +113,35 @@ public class Maths {
                 System.out.print(i+" ");
                 System.out.print(n/i+" ");
             }
+        }
+    }
+
+    private static void printPrime(int n){
+        int counter = 0;
+        for (int i = 1; i <= n; i++) {
+            if(n%i==0)
+                counter++;
+        }
+        if(counter==2){
+            System.out.println("True");
+        }else{
+            System.out.println("False");
+        }
+    }
+
+    private static void printPrimeOptimal(int n){
+        int counter = 0;
+        for (int i = 1; i <= Math.sqrt(n); i++) {
+            if(n%i==0){
+                counter++;
+            }
+            if(n/i!=i)
+                counter++;
+        }
+        if(counter==2){
+            System.out.println("True");
+        }else{
+            System.out.println("False");
         }
     }
 
