@@ -1,9 +1,9 @@
-import java.util.HashSet;
+import java.util.*;
 
 public class ArraysEasy {
     public static void main(String args[]){
-        Integer[] arr = new Integer[]{1,1,2,2,3,3};
-        removeDuplicatesOptimal(arr);
+        Integer[] arr = new Integer[]{1,2,3,4,5};
+        linearSearch(arr, 3);
     }
 
     private static void largestNumber(Integer[] arr){
@@ -80,5 +80,95 @@ public class ArraysEasy {
         //     return i + 1;  REVIEWWW
     }
 
+    private static void rotateArray(Integer[] arr){
+        int temp = arr[0];
+        for (int i = 0; i < arr.length - 1; i++) {
+            arr[i] = arr[i + 1];
+        }
+        arr[arr.length - 1] = temp;
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
+    }
 
+    private static void rotateArrayTemp(Integer[] arr, int k, boolean flag){
+        Integer[] temp = new Integer[arr.length];
+        int count = arr.length-1;
+        for (int i = 1; i <= k; i++) {
+            temp[i] = arr[count--];
+        }
+        for(int i = arr.length; i >= 0; i--){
+            arr[i] = arr[i-1];
+        }
+    }
+
+    private static void rotateArrayOptimal(Integer[] arr, int k){
+        reverseArray(arr, 0, k);
+        reverseArray(arr, k+1, arr.length-1);
+        reverseArray(arr, 0, arr.length-1);
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
+    }
+
+    private static void reverseArray(Integer[] arr, int start, int end){
+        while (start < end) {
+
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            
+            start++;
+            end--;
+        }
+    }
+
+    private static void moveZeros(Integer[] arr){
+        int i = 0, j = arr.length-1;
+        while(i<j){
+            if(arr[i]==0 && arr[j]!=0){
+                swap(arr, i, j);
+                i++;
+                j--;
+            }
+            if(arr[i] != 0){
+                i++;
+            }
+            if(arr[j] == 0){
+                j--;
+            }  
+        }
+        for (int j2 = 0; j2 < arr.length; j2++) {
+            System.out.println(arr[j2]);
+        }
+    }
+
+    private static void moveZerosOptimal(Integer[] arr){
+       int counter = 0;
+       for (int i = 0; i < arr.length; i++) {
+            if(arr[i]!=0){
+                arr[counter++] = arr[i];
+            }
+       }
+       for(int j = counter; j < arr.length; j++){
+        arr[counter++] = 0;
+       }
+       for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+       }
+    }
+
+    private static void swap(Integer[] arr, int i, int j){
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    private static void linearSearch(Integer[] arr, int target){
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i] == target){
+                System.out.println(i+1);
+            }
+        }
+    }
 }
