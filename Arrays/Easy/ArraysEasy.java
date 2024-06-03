@@ -2,8 +2,8 @@ import java.util.*;
 
 public class ArraysEasy {
     public static void main(String args[]){
-        Integer[] arr = new Integer[]{1,0,1,1,0,1,1,1};
-        countOnes(arr);
+        Integer[] arr = new Integer[]{1,0,1,0,3,3,2,8,8};
+        findOneElement(arr);
     }
 
     private static void largestNumber(Integer[] arr){
@@ -193,7 +193,15 @@ public class ArraysEasy {
                 ele++;
                 map.put(arr[i], ele);
             }else{
-                
+               map.put(arr[i], 1); 
+            }
+        }
+        for (int i = 0; i < arr.length; i++) {
+            if(map.containsKey(arr[i])){
+                int ele = map.get(arr[i]);
+                if(ele==1){
+                    System.out.println(arr[i]);
+                }
             }
         }
     }
