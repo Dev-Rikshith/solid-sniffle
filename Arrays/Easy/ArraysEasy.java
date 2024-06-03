@@ -2,8 +2,8 @@ import java.util.*;
 
 public class ArraysEasy {
     public static void main(String args[]){
-        Integer[] arr = new Integer[]{1,2,3,4,5};
-        linearSearch(arr, 3);
+        Integer[] arr = new Integer[]{1,0,1,1,0,1,1,1};
+        countOnes(arr);
     }
 
     private static void largestNumber(Integer[] arr){
@@ -168,6 +168,32 @@ public class ArraysEasy {
         for (int i = 0; i < arr.length; i++) {
             if(arr[i] == target){
                 System.out.println(i+1);
+            }
+        }
+    }
+
+    private static void countOnes(Integer[] arr){
+        int counter = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i] == 1){
+                counter++;
+                continue;
+            }else{
+                counter = 0;
+            }
+        }
+        System.out.println(counter);
+    }
+
+    private static void findOneElement(Integer[] arr){
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < arr.length; i++) {
+            if(map.containsKey(arr[i])){
+                int ele = map.get(arr[i]);
+                ele++;
+                map.put(arr[i], ele);
+            }else{
+                
             }
         }
     }
