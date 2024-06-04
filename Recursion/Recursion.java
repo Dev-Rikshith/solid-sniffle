@@ -1,6 +1,6 @@
 public class Recursion {
     public static void main(String[] args) {
-        System.out.println(fib(5));
+       System.out.println(palindrome(0, "madem"));
     }
 
     private static void nSomething(int n){
@@ -70,5 +70,13 @@ public class Recursion {
             return 1;
         }
         return fib(n-1) + fib(n-2);
+    }
+
+    private static boolean palindrome(int i, String line){
+        if(i>=line.length()/2)
+            return true;
+        if(line.charAt(i) != line.charAt(line.length()-1-i))
+            return false;
+        return palindrome(i+1, line);
     }
 }
