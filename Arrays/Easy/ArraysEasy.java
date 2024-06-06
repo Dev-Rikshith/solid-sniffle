@@ -2,8 +2,8 @@ import java.util.*;
 
 public class ArraysEasy {
     public static void main(String args[]){
-        Integer[] arr = new Integer[]{1,0,1,0,3,3,2,8,8};
-        findOneElement(arr);
+        Integer[] arr = new Integer[]{1,2,4};
+        System.out.println(findMissingNumber(arr));
     }
 
     private static void largestNumber(Integer[] arr){
@@ -204,5 +204,15 @@ public class ArraysEasy {
                 }
             }
         }
+    }
+
+    private static int findMissingNumber(Integer[] nums){ //Can be done using brute force and hashing with n^2 and n complexities
+        int len = nums.length;
+        int sum = 0;
+        int exps =  ((len+1)*(len+2))/2;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+        }
+        return exps-sum;
     }
 }
