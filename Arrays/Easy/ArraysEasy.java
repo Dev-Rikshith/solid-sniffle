@@ -2,8 +2,9 @@ import java.util.*;
 
 public class ArraysEasy {
     public static void main(String args[]){
-        Integer[] arr = new Integer[]{1,2,4};
-        System.out.println(findMissingNumber(arr));
+        int arr1[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int arr2[] = {2, 3, 4, 4, 5, 11, 12};
+        findUnion(arr1, arr2);
     }
 
     private static void largestNumber(Integer[] arr){
@@ -214,5 +215,18 @@ public class ArraysEasy {
             sum += nums[i];
         }
         return exps-sum;
+    }
+
+    private static void findUnion(int[] arr, int[] arr1){ //Can be done using maps and sets
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < arr.length; i++) {
+            map.put(arr[i], map.getOrDefault(arr[i], 0)+1);
+        }
+        for (int i = 0; i < arr1.length; i++) {
+            map.put(arr1[i], map.getOrDefault(arr1[i], 0)+1);
+        }
+        for (Integer integer : map.keySet()) {
+            System.out.println(integer);
+        }
     }
 }
