@@ -2,9 +2,8 @@ import java.util.*;
 
 public class ArraysEasy {
     public static void main(String args[]){
-        int arr1[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        int arr2[] = {2, 3, 4, 4, 5, 11, 12};
-        findUnion(arr1, arr2);
+        Integer[] arr = {2,3,5,1,9};
+        subArraySumExtension(arr, 10);
     }
 
     private static void largestNumber(Integer[] arr){
@@ -227,6 +226,48 @@ public class ArraysEasy {
         }
         for (Integer integer : map.keySet()) {
             System.out.println(integer);
+        }
+    }
+
+    private static void subArraySum(Integer[] arr, int target){             //Works for both positives and negetives
+        int len = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i; j < arr.length; j++) {
+                long sum = 0;
+                for (int k = i; k < j; k++) {
+                    sum += arr[k];
+                }
+                if(sum == target){
+                    len = Math.max(len, j-i);
+                }
+            }
+        }
+        System.out.println(len);
+    }
+
+    private static void subArraySumExtension(Integer[] arr, int target){        //Works for both positives and negetives
+        int len = 0;
+        for (int i = 0; i < arr.length; i++) {
+            long sum = 0;
+            for (int j = i; j < arr.length; j++) {
+                sum += arr[j];
+                if(sum == target){
+                    len = Math.max(len, j-i+1);
+                }
+            }
+        }
+        System.out.println(len);
+    }
+
+    private static void subArraySumBetter(Integer[] arr, int target){
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int len = 0;
+        long sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+                sum += arr[i];
+                if(sum== target){
+                    Math.max(len, i+1);
+                }
         }
     }
 }
