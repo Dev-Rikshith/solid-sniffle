@@ -3,7 +3,7 @@ import java.util.*;
 public class ArraysEasy {
     public static void main(String args[]){
         Integer[] arr = {2,3,5,1,9};
-        subArraySumExtension(arr, 10);
+        subArraySumBetter(arr, 10);
     }
 
     private static void largestNumber(Integer[] arr){
@@ -262,12 +262,28 @@ public class ArraysEasy {
     private static void subArraySumBetter(Integer[] arr, int target){
         HashMap<Integer, Integer> map = new HashMap<>();
         int len = 0;
-        long sum = 0;
-        for (int i = 0; i < arr.length; i++) {
+        Integer sum = 0;
+        for (Integer i = 0; i < arr.length; i++) {
                 sum += arr[i];
                 if(sum== target){
-                    Math.max(len, i+1);
+                     len = Math.max(len, i+1);
+                }
+
+                long rem = sum - target;
+                if(map.containsKey(rem)){
+                    int maxLen = i - map.get(rem);
+                    Math.max(len, maxLen);
+                }
+
+                if(!map.containsKey(sum)){
+                    map.put(sum, i);
                 }
         }
+        System.out.println(len);
     }
+
+    private static void subArraySumOptimal(Integer[] arr, int target){
+        
+    }
+    
 }
