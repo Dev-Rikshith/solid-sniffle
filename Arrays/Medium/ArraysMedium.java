@@ -124,6 +124,20 @@ public class ArraysMedium {
         return list;
     }
 
+    private static int maxProfit(int[] arr) {
+        int minPrice = Integer.MAX_VALUE;
+        int maxProfit = 0;
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] < minPrice){
+                minPrice = arr[i];
+            }
+            if(arr[i] - minPrice > maxProfit){
+                maxProfit = arr[i] - minPrice;
+            }
+        }
+        return maxProfit;
+    }
+
     private static void swap(Integer[] arr, int a, int b){
         Integer temp = arr[a];
         arr[a] =arr[b];
