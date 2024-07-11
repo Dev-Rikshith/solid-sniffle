@@ -138,6 +138,23 @@ public class ArraysMedium {
         return maxProfit;
     }
 
+    private static int[] rearrangeArray(int[] nums) {
+        int pos = 0;
+        int neg = 1;
+        int[] list = new int[nums.length];
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i]>0){
+                list[pos]= nums[i];
+                pos += 2;
+            }else{
+                list[neg]= nums[i];
+                neg += 2;
+            }
+
+        }
+        return list;
+    }
+
     private static void swap(Integer[] arr, int a, int b){
         Integer temp = arr[a];
         arr[a] =arr[b];
