@@ -155,6 +155,14 @@ public class ArraysMedium {
         return list;
     }
 
+    private static int[] leaderInArray(int[] nums){
+        ArrayList<Intege
+        int max = nums[nums.length-1];
+        for(int i = nums.length-2; i > 0; i--){
+
+        }
+    }
+
     private static void swap(Integer[] arr, int a, int b){
         Integer temp = arr[a];
         arr[a] =arr[b];
