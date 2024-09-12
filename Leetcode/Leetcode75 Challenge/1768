@@ -1,0 +1,11 @@
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        arr = []
+        counter = 0
+        s = len(word1) if (len(word1)<len(word2)) else len(word2)
+        flag = 1 if (len(word1)<len(word2)) else 2
+        for i in range(s):
+            arr.append(word1[i])
+            arr.append(word2[i])
+        arr.append(word2[s:]) if flag == 1 else arr.append(word1[s:])
+…       return "".join(arr)
